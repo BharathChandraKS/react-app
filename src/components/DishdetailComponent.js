@@ -13,10 +13,9 @@ class Dishdetail extends Component {
         const monthNames = ["January", "February", "March", "April", "May", "June",
             "July", "August", "September", "October", "November", "December"];
         var date = new Date(commentDate);
-        var format = `${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
-        return format;
+        var formatedDate = `${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+        return formatedDate;
     }
-
 
     renderComments() {
         if (this.props.dish.comments != null) {
