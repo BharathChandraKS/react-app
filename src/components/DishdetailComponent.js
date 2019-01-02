@@ -21,10 +21,12 @@ class Dishdetail extends Component {
         if (this.props.dish.comments != null) {
             const comments = this.props.dish.comments.map((comment) => {
                 return (
-                    <Card key={comment.id}>
+                    <ul key={comment.id} className="ListGroup list-unstyled">
+                    <Card>
                         <CardText>{comment.comment}</CardText>
                         <CardText>-- {comment.author}, {this.formatDate(comment.date)}</CardText>
                     </Card>
+                    </ul>
                 );
             });
             return comments;
@@ -33,18 +35,25 @@ class Dishdetail extends Component {
         }
     }
 
+    renderDish() {
+        return (
+            <Card>
+                <CardImg top src={this.props.dish.image} alt={this.props.dish.name} />
+                <CardBody>
+                    <CardTitle>{this.props.dish.name}</CardTitle>
+                    <CardText>{this.props.dish.description}</CardText>
+                </CardBody>
+            </Card>
+        )
+
+    }
+
     render() {
         return (
             <div className="container" >
                 <div className="row">
                     <div className="col-12 col-md-5 m-1">
-                        <Card>
-                            <CardImg top src={this.props.dish.image} alt={this.props.dish.name} />
-                            <CardBody>
-                                <CardTitle>{this.props.dish.name}</CardTitle>
-                                <CardText>{this.props.dish.description}</CardText>
-                            </CardBody>
-                        </Card>
+                        {this.renderDish()}
                     </div>
                     <div className="col-12 col-md-5 m-1">
                         <Card>
