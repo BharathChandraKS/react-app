@@ -22,10 +22,10 @@ class Dishdetail extends Component {
             const comments = this.props.dish.comments.map((comment) => {
                 return (
                     <ul key={comment.id} className="ListGroup list-unstyled">
-                    <Card>
-                        <CardText>{comment.comment}</CardText>
-                        <CardText>-- {comment.author}, {this.formatDate(comment.date)}</CardText>
-                    </Card>
+                        <Card>
+                            <CardText>{comment.comment}</CardText>
+                            <CardText>-- {comment.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit' }).format(new Date(Date.parse(comment.date)))}</CardText>
+                        </Card>
                     </ul>
                 );
             });
@@ -49,6 +49,7 @@ class Dishdetail extends Component {
     }
 
     render() {
+        if (this.props.dish != null) {
         return (
             <div className="container" >
                 <div className="row">
@@ -66,6 +67,9 @@ class Dishdetail extends Component {
                 </div>
             </div>
         );
+        } else {
+            return (<div></div>);
+        }
     }
 }
 
