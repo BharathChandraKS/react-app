@@ -14,8 +14,8 @@ class Main extends Component {
     };
   }
 
-  onDishSelect(abcd) {
-    this.setState({ selectedDish: abcd});
+  onDishSelect(dishID) {
+    this.setState({ selectedDish: dishID});
   }
 
   render() {
@@ -26,7 +26,7 @@ class Main extends Component {
             <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>
           </div>
         </Navbar>
-        <Menu dishes={this.state.dishes} onClick={(abcd) => this.onDishSelect(abcd)} />
+        <Menu dishes={this.state.dishes} onClick={(dishID) => this.onDishSelect(dishID)} />
         <DishDetail dish={this.state.dishes.filter((dish) => dish.id === this.state.selectedDish)[0]} />
       </div>
     );
