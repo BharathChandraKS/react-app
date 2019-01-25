@@ -22,7 +22,7 @@ class Main extends Component {
   render() {
     return (
       <div>
-          <Header />
+        <Header />
         <Menu dishes={this.state.dishes} onClick={(dishID) => this.onDishSelect(dishID)} />
         <DishDetail dish={this.state.dishes.filter((dish) => dish.id === this.state.selectedDish)[0]} />
         <Footer />
