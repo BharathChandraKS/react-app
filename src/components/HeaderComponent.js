@@ -2,20 +2,23 @@ import React, { Component } from 'react';
 import { Navbar, NavbarBrand, Nav, NavbarToggler, NavItem, Collapse, Jumbotron } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 
-class Header extends Component {
-    constructor(props) {
+export default class Header extends Component {
+
+    constructor (props) {
         super(props)
+
         this.state = {
             isNavOpen: false
         };
+
         this.toggleNav = this.toggleNav.bind(this);
     }
 
-    toggleNav() {
-        this.setState({ isNavOpen: !this.state.isNavOpen });
-    }
+     toggleNav() {
+         this.setState({isNavOpen: !this.state.isNavOpen});
+     }
 
-    render() {
+    render(){
         return (
             <React.Fragment>
                 <Navbar dark expand="md">
@@ -26,31 +29,31 @@ class Header extends Component {
                         </NavbarBrand>
                         <Collapse isOpen={this.state.isNavOpen} navbar >
 
-                            <Nav navbar>
-                                <NavItem>
-                                    <NavLink className="nav-link" to="/home">
-                                        <span className="fa fa-home fa-lg"></span> Home
+                        <Nav navbar>
+                            <NavItem>
+                                <NavLink className="nav-link" to="/home">
+                                    <span className="fa fa-home fa-lg"></span> Home
                                 </NavLink>
-                                </NavItem>
+                            </NavItem>
 
-                                <NavItem>
-                                    <NavLink className="nav-link" to="/aboutus">
-                                        <span className="fa fa-info fa-lg"></span> About us
+                            <NavItem>
+                                <NavLink className="nav-link" to="/aboutus">
+                                    <span className="fa fa-info fa-lg"></span> About us
                                 </NavLink>
-                                </NavItem>
+                            </NavItem>
 
-                                <NavItem>
-                                    <NavLink className="nav-link" to="/menu">
-                                        <span className="fa fa-list fa-lg"></span> Menu
+                            <NavItem>
+                                <NavLink className="nav-link" to="/menu">
+                                    <span className="fa fa-list fa-lg"></span> Menu
                                 </NavLink>
-                                </NavItem>
+                            </NavItem>
 
-                                <NavItem>
-                                    <NavLink className="nav-link" to="/contactus">
-                                        <span className="fa fa-address-card fa-lg"></span> Contact us
+                            <NavItem>
+                                <NavLink className="nav-link" to="/contactus">
+                                    <span className="fa fa-address-card fa-lg"></span> Contact us
                                 </NavLink>
-                                </NavItem>
-                            </Nav>
+                            </NavItem>
+                        </Nav>
                         </Collapse>
                     </div>
                 </Navbar>
@@ -59,7 +62,7 @@ class Header extends Component {
                         <div className="row row-header">
                             <div className="col-12 col-sm-6">
                                 <h1>Ristorante Con Fusion</h1>
-                                <p>We take inspiration from the local dishes and international dishes.</p>
+                                <p>We take inspiration from the world's recepies and try to confuse people.</p>
                             </div>
                         </div>
                     </div>
@@ -68,5 +71,3 @@ class Header extends Component {
         );
     }
 }
-
-export default Header;
